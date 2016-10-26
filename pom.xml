@@ -258,6 +258,7 @@
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>${org.projectlombok.version}</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
@@ -335,7 +336,6 @@
           <configuration>
             <downloadSources>true</downloadSources>
             <downloadJavadocs>true</downloadJavadocs>
-            <projectNameTemplate>[groupId].[artifactId]</projectNameTemplate>
           </configuration>
         </plugin>
         <plugin>
@@ -369,6 +369,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-eclipse-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-idea-plugin</artifactId>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
