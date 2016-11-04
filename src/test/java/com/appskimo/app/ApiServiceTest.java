@@ -3,6 +3,7 @@ package com.appskimo.app;
 import com.appskimo.app.service.ApiService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -23,6 +24,7 @@ import static org.junit.Assert.assertNotNull;
 //import static org.junit.Assert.assertEquals;
 
 @Slf4j
+@Ignore
 @ContextConfiguration(locations = "/test-api-service.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ApiServiceTest {

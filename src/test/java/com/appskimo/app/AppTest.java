@@ -1,7 +1,7 @@
 package com.appskimo.app;
 
-import com.appskimo.app.domain.User;
 import com.appskimo.app.annotation.AspectTestAnnotation;
+import com.appskimo.app.domain.User;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
