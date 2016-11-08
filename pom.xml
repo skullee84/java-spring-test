@@ -46,6 +46,7 @@
     <org.slf4j.version>1.7.21</org.slf4j.version>
     <ch.qos.logback.version>1.1.7</ch.qos.logback.version>
     <org.projectlombok.version>1.16.10</org.projectlombok.version>
+    <org.apache.lucene.version>6.2.1</org.apache.lucene.version>
 
     <org.aspectj.version>1.8.9</org.aspectj.version>
     <cglib.version>3.2.2</cglib.version>
@@ -207,7 +208,7 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>3.4</version>
+      <version>3.5</version>
     </dependency>
     <dependency>
       <groupId>commons-fileupload</groupId>
@@ -292,6 +293,17 @@
       <groupId>io.reactivex</groupId>
       <artifactId>rxjava</artifactId>
       <version>1.2.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-core</artifactId>
+      <version>${org.apache.lucene.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-analyzers-common</artifactId>
+      <version>${org.apache.lucene.version}</version>
     </dependency>
   </dependencies>
 

@@ -7,6 +7,8 @@ import rx.Subscriber;
 import rx.functions.Action0;
 import rx.schedulers.Schedulers;
 
+import java.util.Arrays;
+
 /**
  * Created by dominic.lee on 2016. 10. 17..
  */
@@ -55,13 +57,30 @@ public class RxTest {
 
             });
 
-
         Scheduler.Worker worker = Schedulers.newThread().createWorker();
         worker.schedule(new Action0() {
             @Override
             public void call() {
                 myWorker();
                 worker.schedule(this);
+            }
+        });
+
+        Observable<String> observable = Observable.from(Arrays.asList("a", "b", "c"));
+        observable.subscribe(new Subscriber<String>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+
+            }
+
+            @Override
+            public void onNext(String s) {
+                System.out.println(s);
             }
         });
 
