@@ -7,14 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpRequest;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.ClientHttpRequestExecution;
-import org.springframework.http.client.ClientHttpRequestInterceptor;
-import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.http.client.support.HttpRequestWrapper;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.LinkedMultiValueMap;
@@ -24,8 +17,6 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.inject.Inject;
-import java.io.IOException;
-import java.util.Collections;
 
 /**
  * Created by dominic.lee on 2016. 11. 15..
@@ -41,11 +32,6 @@ public class RestTest {
     @Before
     public void before() {
         Assert.assertNotNull(restTemplate);
-
-        restTemplate.setInterceptors(Collections.singletonList(new HeaderRequestInterceptor()));
-        restTemplate.setMessageConverters(Collections.singletonList(
-            new MappingJackson2HttpMessageConverter()
-        ));
     }
 
     @Test
@@ -92,12 +78,4 @@ public class RestTest {
         log.info("{}", sampleData.getData());
     }
 
-    private class HeaderRequestInterceptor implements ClientHttpRequestInterceptor {
-        @Override
-        public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
-            HttpRequest wrapper = new HttpRequestWrapper(request);
-            wrapper.getHeaders().set("Content-Type", MediaType.APPLICATION_JSON_UTF8_VALUE);
-            return execution.execute(wrapper, body);
-        }
-    }
 }
