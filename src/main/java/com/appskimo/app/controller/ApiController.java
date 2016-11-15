@@ -11,6 +11,7 @@ import javax.inject.Inject;
  * Created by dominic.lee on 2016. 10. 18..
  */
 @RestController
+//@RequestMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class ApiController {
 
